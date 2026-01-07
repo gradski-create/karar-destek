@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Karar Destek | Dashboard</title>
+</head>
+<body>
+
+<h2>Hoş geldin</h2>
+<p>Başarıyla giriş yaptın.</p>
+
+<button onclick="logout()">Çıkış</button>
+
+<script>
+function logout() {
+    localStorage.removeItem("token");
+    window.location.href = "login.html";
+}
+</script>
+
+</body>
+</html>
