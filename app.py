@@ -10,6 +10,13 @@ ALGORITHM = "HS256"
 
 app = FastAPI()
 
+from fastapi.responses import RedirectResponse
+
+@app.get("/")
+def root():
+    return RedirectResponse(url="/frontend/login.html")
+
+
 # ---------- MODELLER ----------
 class LoginRequest(BaseModel):
     username: str
@@ -39,6 +46,8 @@ def login(data: LoginRequest):
         "status": "error",
         "message": "Hatalı giriş"
     }
+
+
 
 # ---------- STATIC (EN SON!) ----------
 app.mount("/frontend", StaticFiles(directory="frontend", html=True), name="frontend")
